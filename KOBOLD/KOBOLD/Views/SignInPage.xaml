@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KOBOLD.Views.SignInPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                Margin="15,5,15,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid
+                Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Mundane Name"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtMundaneName"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.MundaneName, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Persona Name"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtPersonaName"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.PersonaName, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Class"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtClass"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.SelectedClass, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Park"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtPark"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.Park, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Kingdom"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtKingdom"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.Kingdom, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="New Player"
+                    Grid.Row="0"/>
+                    <Switch
+                    x:Name="txtNewPlayer"
+                    Grid.Row="1"
+                    HorizontalOptions="Start"
+                    IsToggled="{Binding SignIn.NewPlayer, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Wristband Number"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtWristbandnumber"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.WristbandNumber, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Parking Pass Number"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtParkingPassNumber"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.ParkingPassNumber, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Guardian Name (If Under 18)"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtGuardianName"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.GuardianName, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="9">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Look The Part"
+                    Grid.Row="0"/>
+                    <Switch
+                    x:Name="txtLookThePart"
+                    Grid.Row="1"
+                    HorizontalOptions="Start"
+                    IsToggled="{Binding SignIn.LookThePart, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                x:Name="grdCustomFieldOne"
+                Grid.Row="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="{Binding Event.CustomFieldOne}"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCustomFieldOne"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.CustomFieldOne, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                x:Name="grdCustomFieldTwo"
+                Grid.Row="11">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="{Binding Event.CustomFieldTwo}"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCustomFieldTwo"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.CustomFieldTwo, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                x:Name="grdCustomFieldThree"
+                Grid.Row="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="{Binding Event.CustomFieldThree}"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCustomFieldThree"
+                    Grid.Row="1"
+                    Text="{Binding SignIn.CustomFieldThree, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="13">
+                    <StackLayout
+                    Orientation="Horizontal">
+                        <Button
+                        x:Name="btnSave"
+                        Text="Save"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Fill"
+                        Clicked="BtnSave_Clicked"/>
+                        <Button
+                        x:Name="btnDelete"
+                        Text="Delete"
+                        Clicked="BtnDelete_Clicked"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Fill"
+                        IsVisible="{Binding Edit, Mode=OneWay}"/>
+                        <Button
+                        x:Name="btnCancel"
+                        Text="Cancel"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Fill"
+                        Clicked="BtnCancel_Clicked"/>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

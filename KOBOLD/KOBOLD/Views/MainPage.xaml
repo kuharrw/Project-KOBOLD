@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KOBOLD"
+             x:Class="KOBOLD.Views.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label
+                Grid.Row="0"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"
+                Text="Project K.O.B.O.L.D"
+                FontSize="Large"/>
+                <Grid
+                Grid.Row="1"
+                Margin="15,5,15,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Grid.Row="0"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Select an Event"/>
+                    <ListView
+                    x:Name="lstEvents"
+                    Grid.Row="1"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    ItemTapped="LstEvents_ItemTapped"                    
+                    ItemsSource="{Binding Events, Mode=OneWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Clicked="EventEdit" CommandParameter="{Binding .}"
+                                            Text="Edit" />
+                                    </ViewCell.ContextActions>
+                                    <Label Text="{Binding Name}"
+                                           VerticalOptions="Center"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button
+                    x:Name="btnAddEvent"
+                    Grid.Row="2"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Text="New Event"
+                    Clicked="BtnAddEvent_Clicked"/>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

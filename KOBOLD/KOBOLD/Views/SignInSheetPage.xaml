@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KOBOLD.Views.SignInSheetPage">
+    <ContentPage.Content>
+        <Grid
+            Margin="15,5,15,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <ListView
+            x:Name="lstSignIns"
+            Grid.Row="0"
+            ItemTapped="LstSignIns_ItemTapped"
+            ItemsSource="{Binding SignIns, Mode=OneWay}"
+            RefreshCommand="{Binding Refresh}"
+            IsPullToRefreshEnabled="True"
+            RowHeight="120">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="5,5,5,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="Mundane Name"/>
+                                    <Label
+                                    Grid.Row="1"
+                                    Text="{Binding MundaneName}"/>
+                                </Grid>
+
+                                <Grid
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="5,5,5,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="Persona Name"/>
+                                    <Label
+                                    Grid.Row="1"
+                                    Text="{Binding PersonaName}"/>
+                                </Grid>
+
+                                <Grid
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="5,5,5,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="Class"/>
+                                    <Label
+                                    Grid.Row="1"
+                                    Text="{Binding SelectedClass}"/>
+                                </Grid>
+
+                                <Grid
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="5,5,5,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="Park"/>
+                                    <Label
+                                    Grid.Row="1"
+                                    Text="{Binding Park}"/>
+                                </Grid>
+                                
+                                <Grid
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Margin="5,5,5,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="New Player"/>
+                                    <Switch
+                                        Grid.Row="1"
+                                        HorizontalOptions="Start"
+                                        IsEnabled="False"
+                                        IsToggled="{Binding NewPlayer}"/>
+                                </Grid>
+                                
+                                <Grid
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Margin="5,5,5,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                    Grid.Row="0"
+                                    Text="Kingdom"/>
+                                    <Label
+                                    Grid.Row="1"
+                                    Text="{Binding Kingdom}"/>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                x:Name="btnAdd"
+                Grid.Row="1"
+                Text="Add Sign In"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                Clicked="BtnAdd_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

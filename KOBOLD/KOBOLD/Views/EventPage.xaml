@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KOBOLD.Views.EventPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                Margin="15,5,15,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid
+                Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Name"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtName"
+                    Grid.Row="1"
+                    Text="{Binding Event.Name, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Date"
+                    Grid.Row="0"/>
+                    <DatePicker
+                    x:Name="dteEventDate"
+                    Grid.Row="1"
+                    Date="{Binding Event.EventDate, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Credits"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCredits"
+                    Grid.Row="1"
+                    Keyboard="Numeric"
+                    Text="{Binding Event.Credits, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Custom Field 1"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCustom1"
+                    Grid.Row="1"
+                    Text="{Binding Event.CustomFieldOne, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Custom Field 2"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCustom2"
+                    Grid.Row="1"
+                    Text="{Binding Event.CustomFieldTwo, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Custom Field 3"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtCustom3"
+                    Grid.Row="1"
+                    Text="{Binding Event.CustomFieldThree, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="6">
+                    <StackLayout
+                    Orientation="Horizontal">
+                        <Button
+                        x:Name="btnSave"
+                        Text="Save"
+                        Clicked="BtnSave_Clicked"/>
+                        <Button
+                        x:Name="btnComplete"
+                        Text="Complete"
+                        Clicked="BtnComplete_Clicked"
+                        IsVisible="{Binding Edit, Mode=OneWay}"/>
+                        <Button
+                        x:Name="btnCancel"
+                        Text="Cancel"
+                        Clicked="BtnCancel_Clicked"/>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

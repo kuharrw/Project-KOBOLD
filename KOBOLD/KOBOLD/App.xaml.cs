@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KOBOLD.Data;
+using KOBOLD.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +13,9 @@ namespace KOBOLD
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            LocalDB.InitializeDatabaseConnection();
+
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
