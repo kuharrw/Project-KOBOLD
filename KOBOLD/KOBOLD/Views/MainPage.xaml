@@ -42,6 +42,8 @@
                                     <ViewCell.ContextActions>
                                         <MenuItem Clicked="EventEdit" CommandParameter="{Binding .}"
                                             Text="Edit" />
+                                        <MenuItem Clicked="EventExport" CommandParameter="{Binding .}"
+                                            Text="Export" />
                                     </ViewCell.ContextActions>
                                     <Label Text="{Binding Name}"
                                            VerticalOptions="Center"/>
@@ -52,7 +54,6 @@
                     <Button
                     x:Name="btnAddEvent"
                     Grid.Row="2"
-                    VerticalOptions="Fill"
                     HorizontalOptions="Fill"
                     Text="New Event"
                     Clicked="BtnAddEvent_Clicked"/>

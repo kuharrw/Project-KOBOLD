@@ -53,7 +53,19 @@ namespace KOBOLD.Views
         private void EventEdit(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            Navigation.PushAsync(new EventPage((mi.CommandParameter as Event)));
+            Navigation.PushAsync(new EventPage(mi.CommandParameter as Event));
+        }
+
+        private async void EventExport(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+
+            string action = await DisplayActionSheet("Event Sign Ins Export", "Cancel", null, "Email CSV");
+
+            if(!action.Equals("Cancel"))
+            {
+                vm.Export(mi.CommandParameter as Event, action);
+            }
         }
     }
 }

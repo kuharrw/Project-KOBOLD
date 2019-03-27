@@ -74,14 +74,19 @@ namespace KOBOLD.ViewModels
         /// <returns>True if successful</returns>
         public bool SaveEvent()
         {
-            //update
+            if (string.IsNullOrEmpty(Event.Name) || Event.Credits < 0)
+            {
+                App.Current.MainPage.DisplayAlert("Error", "Name is required and Credits must be more than 0.", "OK");
+                return false;
+            }
+
             if (Event.EventId.HasValue)
             {
                return LocalDB.UpdateEvent(Event);
             }
             else
             {
-                return LocalDB.AddEvent(Event) > 0;
+                return LocalDB.AddEvent(Event);
             }
         }
 

@@ -1,8 +1,10 @@
 ﻿using KOBOLD.Data;
 using KOBOLD.Models;
+using Plugin.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
 
 namespace KOBOLD.ViewModels
@@ -44,6 +46,44 @@ namespace KOBOLD.ViewModels
             //    , new Event{Name = "Test event 2", EventId = 0, EventDate = DateTime.Now}
             //    , new Event{Name = "Test event 3", EventId = 0, EventDate = DateTime.Now}
             //}; 
+        }
+
+        internal void Export(Event @event, string v)
+        {
+            try
+            {
+                var signIns = LocalDB.GetSignIns(@event.EventId.Value);
+
+                File.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{@event.Name}_Sign_Ins.csv"));
+
+                using (var textWriter = File.CreateText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{@event.Name}_Sign_Ins.csv")))
+                {
+                    textWriter.WriteLine($"Sign In ID,Event ID,Mundane Name,Persona Name,Class,Park,Kingdom,New Player,Wristband Number,Parking Pass Number,Guardian Name,LTP,{@event.CustomFieldOne},{@event.CustomFieldTwo},{@event.CustomFieldThree}");
+                    foreach (var line in DataHelpers.ToCsv(signIns))
+                    {
+                        textWriter.WriteLine(line);
+                    }
+
+                    textWriter.Close();
+                }
+
+                var emailTask = CrossMessaging.Current.EmailMessenger;
+                if (emailTask.CanSendEmail)
+                {
+                    var email = new EmailMessageBuilder()
+                      .Subject($"{@event.Name} sign ins")
+                      .Body("")
+                      .WithAttachment(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{@event.Name}_Sign_Ins.csv"), "text/csv")
+                      .Build();
+
+                    emailTask.SendEmail(email);
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Current.MainPage.DisplayAlert("Error", "Unable to export sign ins", "OK");
+                throw;
+            }
         }
     }
 }

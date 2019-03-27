@@ -66,8 +66,8 @@ namespace KOBOLD.Views
         /// </summary>
         private void BtnSave_Clicked(object sender, EventArgs e)
         {
-            vm.SaveSignIn();
-            Navigation.PopAsync();
+            if(vm.SaveSignIn())
+                Navigation.PopAsync();
         }
 
         /// <summary>

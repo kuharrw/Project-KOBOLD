@@ -88,13 +88,19 @@ namespace KOBOLD.ViewModels
         /// <returns>True if successful</returns>
         public bool SaveSignIn()
         {
+            if (string.IsNullOrEmpty(SignIn.MundaneName) || string.IsNullOrEmpty(SignIn.PersonaName) || string.IsNullOrEmpty(SignIn.SelectedClass) || string.IsNullOrEmpty(SignIn.Park) || string.IsNullOrEmpty(SignIn.Kingdom))
+            {
+                App.Current.MainPage.DisplayAlert("Error", "Mundane Name, Persona Name, Class, Park, and Kingdom are required.", "OK");
+                return false;
+            }
+
             if (SignIn.SignInId.HasValue)
             {                
                 return LocalDB.UpdateSignIn(SignIn);
             }
             else
             {
-                return LocalDB.AddSignIn(SignIn) > 0;
+                return LocalDB.AddSignIn(SignIn);
             }
         }
 

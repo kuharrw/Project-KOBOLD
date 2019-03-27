@@ -13,7 +13,7 @@ namespace KOBOLD.Data
     public static class LocalDB
     {
         //Constant string for the path to the DB
-        public static readonly string DbFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "KOBOLD.db");
+        public static readonly string DbFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "KOBOLD.db");
         //Sqlite connection object
         private static SQLiteConnection db = null;
 
@@ -31,6 +31,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return false;
             }
         }
@@ -38,18 +39,19 @@ namespace KOBOLD.Data
         #region Events
         /// <summary>Adds a new event</summary>
         /// <param name="event">The new event to be added</param>
-        /// <returns>The ID of the newly added event</returns>
-        public static int AddEvent(Event @event)
+        /// <returns>True if successful</returns>
+        public static bool AddEvent(Event @event)
         {
             try
             {
                 db.Insert(@event);
 
-                return @event.EventId.Value;
+                return @event.EventId.Value > 0;
             }
             catch (Exception ex)
             {
-                return -1;
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
+                return false;
             }
         }
 
@@ -64,6 +66,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return null;
             }
         }
@@ -81,6 +84,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return null;
             }
         }
@@ -96,6 +100,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return false;
             }
         }
@@ -104,18 +109,19 @@ namespace KOBOLD.Data
         #region SignIns
         /// <summary>Adds a new sign in</summary>
         /// <param name="signIn">The new sign in to be added</param>
-        /// <returns>The ID of the newly added sign in</returns>
-        public static int AddSignIn(SignIn signIn)
+        /// <returns>True if successful</returns>
+        public static bool AddSignIn(SignIn signIn)
         {
             try
             {
                 db.Insert(signIn);
 
-                return signIn.SignInId.Value;
+                return signIn.SignInId.Value > 0;
             }
             catch (Exception ex)
             {
-                return -1;
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
+                return false;
             }
         }
 
@@ -130,6 +136,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return null;
             }
         }
@@ -147,6 +154,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return null;
             }
         }
@@ -162,6 +170,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return false;
             }
         }
@@ -179,6 +188,7 @@ namespace KOBOLD.Data
             }
             catch (Exception ex)
             {
+                App.Current.MainPage.DisplayAlert("Error", "An error occured accessing the local database", "OK");
                 return false;
             }
         }

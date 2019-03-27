@@ -34,8 +34,8 @@ namespace KOBOLD.Views
 
         private void BtnSave_Clicked(object sender, EventArgs e)
         {
-            vm.SaveEvent();
-            Navigation.PopAsync();
+            if(vm.SaveEvent())
+                Navigation.PopAsync();
         }
 
         private void BtnComplete_Clicked(object sender, EventArgs e)
