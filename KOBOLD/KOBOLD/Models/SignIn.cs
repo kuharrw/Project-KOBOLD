@@ -11,6 +11,7 @@ namespace KOBOLD.Models
     {
         private int? signInId;
         private int eventId;
+        private int lineNumber;
         private string mundaneName;
         private string personaName;
         private string selectedClass;
@@ -21,11 +22,14 @@ namespace KOBOLD.Models
         private string parkingPassNumber;
         private string guardianName;
         private bool lookThePart;
+        private string signInDay;
+        private bool payExempt;
         private string customFieldOne;
         private string customFieldTwo;
         private string customFieldThree;
 
 
+        public int LineNumber { get => lineNumber; set => lineNumber = value; }
         [PrimaryKey, AutoIncrement]
         public int? SignInId { get => signInId; set => signInId = value; }        
         public int EventId { get => eventId; set => eventId = value; }
@@ -39,6 +43,8 @@ namespace KOBOLD.Models
         public string ParkingPassNumber { get => parkingPassNumber; set => parkingPassNumber = value; }
         public string GuardianName { get => guardianName; set => guardianName = value; }
         public bool LookThePart { get => lookThePart; set => lookThePart = value; }
+        public string SignInDay { get => signInDay; set => signInDay = value; }
+        public bool PayExempt { get => payExempt; set => payExempt = value; }
         public string CustomFieldOne { get => customFieldOne; set => customFieldOne = value; }
         public string CustomFieldTwo { get => customFieldTwo; set => customFieldTwo = value; }
         public string CustomFieldThree { get => customFieldThree; set => customFieldThree = value; }

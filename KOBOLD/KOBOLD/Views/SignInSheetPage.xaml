@@ -14,8 +14,6 @@
             Grid.Row="0"
             ItemTapped="LstSignIns_ItemTapped"
             ItemsSource="{Binding SignIns, Mode=OneWay}"
-            RefreshCommand="{Binding Refresh}"
-            IsPullToRefreshEnabled="True"
             RowHeight="120">
                 <ListView.ItemTemplate>
                     <DataTemplate>

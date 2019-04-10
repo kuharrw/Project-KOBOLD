@@ -3,6 +3,7 @@ using KOBOLD.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace KOBOLD.ViewModels
@@ -63,19 +64,57 @@ namespace KOBOLD.ViewModels
             }
         }
 
+        private ObservableCollection<string> signInDays;
+        public ObservableCollection<string> SignInDays
+        {
+            get
+            {
+                return signInDays;
+            }
+            set
+            {
+                signInDays = value;
+
+                NotifyPropertyChanged("SignInDays");
+            }
+        }
+
         public SignInPageViewModel(Event @event)
         {
             Event = @event;
 
+            SignInDays = new ObservableCollection<string>
+            {                
+                "Friday"
+                , "Saturday"
+                , "Sunday"
+                , "Monday"
+                , "Tuesday"
+                , "Wednesday"
+                , "Thursday"
+            };
+
             SignIn = new SignIn
             {
                 EventId = @event.EventId.Value
+                , SignInDay = DateTime.Now.DayOfWeek.ToString()
             };
         }
 
         public SignInPageViewModel(Event @event, SignIn signIn)
         {
             Event = @event;
+
+            SignInDays = new ObservableCollection<string>
+            {
+                "Friday"
+                , "Saturday"
+                , "Sunday"
+                , "Monday"
+                , "Tuesday"
+                , "Wednesday"
+                , "Thursday"
+            };
 
             SignIn = signIn;
 
@@ -100,6 +139,8 @@ namespace KOBOLD.ViewModels
             }
             else
             {
+                var signIns = LocalDB.GetSignIns(Event.EventId.Value);
+                SignIn.LineNumber = signIns.Last().LineNumber + 1;
                 return LocalDB.AddSignIn(SignIn);
             }
         }

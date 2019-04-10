@@ -36,6 +36,7 @@ namespace KOBOLD.Views
         {
             base.OnAppearing();
             vm.Refresh();
+            this.Title = vm.Event.Name + $" ({vm.SignIns.Count} Total Sign Ins. {vm.SignIns.Where(s => !s.PayExempt).Count()} Paying Sign Ins)";
         }
 
         /// <summary>

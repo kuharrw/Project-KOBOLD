@@ -21,6 +21,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid
                 Grid.Row="0">
@@ -120,6 +122,23 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Label
+                    Text="Sign In Day"
+                    Grid.Row="0"/>
+                    <Picker
+                    x:Name="pckSignInDay"
+                    Grid.Row="1"
+                    HorizontalOptions="Start"                    
+                    ItemsSource="{Binding SignInDays, Mode=OneWay}"
+                    SelectedItem="{Binding SignIn.SignInDay, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
                     Text="Wristband Number"
                     Grid.Row="0"/>
                     <Entry
@@ -129,7 +148,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="7">
+                Grid.Row="8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -144,7 +163,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="8">
+                Grid.Row="9">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -159,7 +178,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="9">
+                Grid.Row="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -175,8 +194,24 @@
                 </Grid>
 
                 <Grid
+                Grid.Row="11">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Pay Exempt"
+                    Grid.Row="0"/>
+                    <Switch
+                    x:Name="txtPayExempt"
+                    Grid.Row="1"
+                    HorizontalOptions="Start"
+                    IsToggled="{Binding SignIn.PayExempt, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
                 x:Name="grdCustomFieldOne"
-                Grid.Row="10">
+                Grid.Row="12">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -192,7 +227,7 @@
 
                 <Grid
                 x:Name="grdCustomFieldTwo"
-                Grid.Row="11">
+                Grid.Row="13">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -208,7 +243,7 @@
 
                 <Grid
                 x:Name="grdCustomFieldThree"
-                Grid.Row="12">
+                Grid.Row="14">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -223,7 +258,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="13">
+                Grid.Row="15">
                     <StackLayout
                     Orientation="Horizontal">
                         <Button
