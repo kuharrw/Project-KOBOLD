@@ -98,6 +98,8 @@ namespace KOBOLD.ViewModels
             {
                 EventId = @event.EventId.Value
                 , SignInDay = DateTime.Now.DayOfWeek.ToString()
+                , Kingdom = Event.DefaultKingdom ?? string.Empty
+                , Park = Event.DefaultPark ?? string.Empty
             };
         }
 
@@ -140,7 +142,7 @@ namespace KOBOLD.ViewModels
             else
             {
                 var signIns = LocalDB.GetSignIns(Event.EventId.Value);
-                SignIn.LineNumber = signIns.Last().LineNumber + 1;
+                SignIn.LineNumber = signIns.Any() ? signIns.Last().LineNumber + 1 : 1;
                 return LocalDB.AddSignIn(SignIn);
             }
         }

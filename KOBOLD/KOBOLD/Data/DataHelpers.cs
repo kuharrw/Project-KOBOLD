@@ -15,8 +15,8 @@ namespace KOBOLD.Data
             foreach (var @object in list)
             {
                 yield return string.Join(",",
-                                         fields.Select(x => (x.GetValue(@object) ?? string.Empty).ToString())
-                                               .Concat(properties.Select(p => (p.GetValue(@object, null) ?? string.Empty).ToString()))
+                                         fields.Select(x => (x.GetValue(@object) ?? string.Empty).ToString().Replace(',', ' '))
+                                               .Concat(properties.Select(p => (p.GetValue(@object, null) ?? string.Empty).ToString().Replace(',', ' ')))
                                                .ToArray());
             }
         }

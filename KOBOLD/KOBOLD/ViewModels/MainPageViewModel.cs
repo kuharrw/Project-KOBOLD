@@ -59,8 +59,8 @@ namespace KOBOLD.ViewModels
 
                 using (var textWriter = File.CreateText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{@event.Name}_Sign_Ins.csv")))
                 {
-                    textWriter.WriteLine($"{@event.Name},{@event.EventDate.Date.ToShortDateString()},{@event.Credits} {(@event.Credits > 1 ? "Credits" : "Credit")}, Total Sign Ins: {signIns.Count}, Paying Sign Ins: {signIns.Where(s => !s.PayExempt).Count()}");
-                    textWriter.WriteLine($"Sign In Number, Sign In ID,Event ID,Mundane Name,Persona Name,Class,Park,Kingdom,New Player,Wristband Number,Parking Pass Number,Guardian Name,LTP, Sign In Day, Pay Exempt,{@event.CustomFieldOne},{@event.CustomFieldTwo},{@event.CustomFieldThree}");
+                    textWriter.WriteLine($"{@event.Name.Replace(',',' ' )},{@event.EventDate.Date.ToShortDateString()},{@event.Credits} {(@event.Credits > 1 ? "Credits" : "Credit")}, Total Sign Ins: {signIns.Count}, Paying Sign Ins: {signIns.Where(s => !s.PayExempt).Count()}");
+                    textWriter.WriteLine($"Sign In Number, Sign In ID,Event ID,Mundane Name,Persona Name,Class,Park,Kingdom,New Player,Wristband Number,Parking Pass Number,Guardian Name,LTP, Sign In Day, Pay Exempt,{(@event.CustomFieldOne ?? string.Empty).Replace(',', ' ')},{(@event.CustomFieldTwo ?? string.Empty).Replace(',', ' ')},{(@event.CustomFieldThree ?? string.Empty).Replace(',', ' ')}");
                     foreach (var line in DataHelpers.ToCsv(signIns))
                     {
                         textWriter.WriteLine(line);

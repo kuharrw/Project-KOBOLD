@@ -14,6 +14,9 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid
                 Grid.Row="0">
@@ -68,6 +71,52 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Label
+                    Text="Show Event Fields"
+                    Grid.Row="0"/>
+                    <Switch
+                    x:Name="swtEvent"
+                    Grid.Row="1"
+                    HorizontalOptions="Start"
+                    IsToggled="{Binding Event.IsEvent, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Default Park"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtPark"
+                    Grid.Row="1"
+                    Text="{Binding Event.DefaultPark, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                    Text="Default Kingdom"
+                    Grid.Row="0"/>
+                    <Entry
+                    x:Name="txtKingdom"
+                    Grid.Row="1"
+                    Text="{Binding Event.DefaultKingdom, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                Grid.Row="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
                     Text="Custom Field 1"
                     Grid.Row="0"/>
                     <Entry
@@ -77,7 +126,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="4">
+                Grid.Row="7">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -92,7 +141,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="5">
+                Grid.Row="8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -107,7 +156,7 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="6">
+                Grid.Row="9">
                     <StackLayout
                     Orientation="Horizontal">
                         <Button

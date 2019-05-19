@@ -80,6 +80,12 @@ namespace KOBOLD.ViewModels
                 return false;
             }
 
+            if (Event.Name.Contains("/"))
+            {
+                App.Current.MainPage.DisplayAlert("Error", @"Event Name cannot contain '/'", "OK");
+                return false;
+            }
+
             if (Event.EventId.HasValue)
             {
                return LocalDB.UpdateEvent(Event);
@@ -98,7 +104,16 @@ namespace KOBOLD.ViewModels
         {
             Event.Complete = true;
 
-            return SaveEvent();
+            if(SaveEvent())
+            {
+                return true;
+            }
+            else
+            {
+                Event.Complete = false;
+
+                return false;
+            }
         }
     }
 }

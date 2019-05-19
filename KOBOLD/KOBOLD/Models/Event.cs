@@ -17,7 +17,9 @@ namespace KOBOLD.Models
         private string customFieldOne;
         private string customFieldTwo;
         private string customFieldThree;
-
+        private bool isEvent;
+        private string defaultPark;
+        private string defaultKingdom;
 
         [PrimaryKey, AutoIncrement]
         public int? EventId { get => eventId; set => eventId = value; }
@@ -28,5 +30,8 @@ namespace KOBOLD.Models
         public string CustomFieldOne { get => customFieldOne; set => customFieldOne = value; }
         public string CustomFieldTwo { get => customFieldTwo; set => customFieldTwo = value; }
         public string CustomFieldThree { get => customFieldThree; set => customFieldThree = value; }
+        public bool IsEvent { get => isEvent; set => isEvent = value; }
+        public string DefaultPark { get => defaultPark; set => defaultPark = value; }
+        public string DefaultKingdom { get => defaultKingdom; set => defaultKingdom = value; }
     }
 }

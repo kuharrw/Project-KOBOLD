@@ -116,7 +116,8 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="6">
+                    Grid.Row="6"
+                    IsVisible="{Binding Event.IsEvent, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -133,7 +134,8 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="7">
+                    Grid.Row="7"
+                    IsVisible="{Binding Event.IsEvent, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -148,7 +150,8 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="8">
+                    Grid.Row="8"
+                    IsVisible="{Binding Event.IsEvent, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -163,7 +166,8 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="9">
+                    Grid.Row="9"
+                    IsVisible="{Binding Event.IsEvent, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -178,7 +182,8 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="10">
+                    Grid.Row="10"
+                    IsVisible="{Binding Event.IsEvent, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -194,7 +199,8 @@
                 </Grid>
 
                 <Grid
-                Grid.Row="11">
+                    Grid.Row="11"
+                    IsVisible="{Binding Event.IsEvent, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
