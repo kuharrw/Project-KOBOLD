@@ -11,7 +11,9 @@ When finished taking sign ins, tap and hold the event on the home screen to brin
 New in version 1.3
 
 -New fields in events, allowing for default park and kingdom (especially useful for new players who don't know what to put)
+
 -New field in events, allows fields that are not relevant to park days to be hidden (wristband number, parking pass number, essentially everything after Kingdom)
+
 -Bug fixes for exporting involving event names containing "/" which causes file path issues and "," in sign in fields
 
 New in version 1.1
